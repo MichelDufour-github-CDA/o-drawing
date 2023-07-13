@@ -5,20 +5,26 @@ const app = {
 
     init() {
         document.querySelector('form').addEventListener('input', app.dataHandler);
+        socket = io();
+        socket.on("autodraw", (data) => {
+            app.generateDraw(data)
+        })
     },
 
     dataHandler() {
         const thicknessInput = document.querySelector('[name=thickness]');
         const previewElem = document.querySelector('.thickness-preview');
+        const color = document.querySelector('[name=color]').value;
         previewElem.style.width = `${thicknessInput.value}px`;
         previewElem.style.height = `${thicknessInput.value}px`;
+        previewElem.style["background-color"] = color;
         username = document.querySelector('[name=username]').value;
     },
 
     generateDraw(data) {
         stroke(data.color);
         strokeWeight(data.thickness);
-        line(data.mouseappX, data.mouseY, data.pmouseX, data.pmouseY);
+        line(data.mouseX, data.mouseY, data.pmouseX, data.pmouseY);
         app.arrowHandle(data);
     },
 
@@ -93,6 +99,19 @@ function draw() {
         const thickness = document.querySelector('[name=thickness]').value;
         strokeWeight(thickness);
         line(mouseX, mouseY, pmouseX, pmouseY);
+
+        const data = {
+            mouseX,
+            mouseY,
+            pmouseX,
+            pmouseY,
+            color,
+            thickness,
+            username,
+        }
+
+
+        socket.emit("draw", data)
     }
 }
 // eslint-disable-next-line no-unused-vars
