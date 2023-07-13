@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O'drawing</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="/js/script.js" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1> O'drawing</h1>
+        </header>
+        <main>
+            <aside>
+                <form>
+                    <ul>
+                        <li>
+                            <label for="username">Pseudo</label>
+                            <input name="username" type="text" value="">
+                        </li>
+                        <li>
+                            <label for="color">Couleur</label>
+                            <input name="color" type="color" value="#ffffff">
+                        </li>
+                        <li>
+                            <label for="thickness">Épaisseur</label>
+                            <span class="thickness-preview"></span>
+                            <input name="thickness" type="range" min="1" max="30" value="5">
+                        </li>
+                    </ul>
+                </form>
+            </aside>
+            <div id="canvas-container"></div>
+        </main>
+    </div>
+</body>
+
+</html>

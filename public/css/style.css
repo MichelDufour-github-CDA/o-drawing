@@ -1,0 +1,44 @@
+h1 {
+    margin-bottom: 0.5em;
+}
+
+.container main{
+    display:flex;
+}
+
+label {
+    display: inline-block;
+    margin-right: 2em;
+}
+
+form li{
+    position: relative;
+}
+
+.thickness-preview {
+    display: inline-block;
+    background-color: #fff;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#canvas-container{
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+.arrow{
+    background-image: url(/images/cursor.png);
+    background-size: 11px 20px;
+    background-repeat: no-repeat;
+    height:40px;
+    padding-left: 15px;
+    position:absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.6rem;
+    font-weight:bold;
+    text-shadow: 1px 1px 0px rgba(0,0,0, 0.5);
+}
